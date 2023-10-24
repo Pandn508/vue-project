@@ -10,8 +10,8 @@
 - [x] uno-css
 - [ ] axios 封装
 - [x] layout
-- [ ] login页面
-- [ ] 权限管理
+- [x] login页面
+- [x] 权限管理
 - [x] 菜单管理
 - [x] git hook
 - [ ] 主题色支持
