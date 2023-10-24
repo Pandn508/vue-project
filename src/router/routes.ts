@@ -50,4 +50,25 @@ const routes: RouteRecordRaw[] = [
   }
 ];
 
-export default routes;
+const wihitetRoutes: RouteRecordRaw[] = [
+  {
+    name: 'login',
+    path: '/login',
+    component: () => import('@/views/login/index.vue'),
+    meta: {
+      title: '登录',
+      fullScreen: true
+    }
+  },
+  {
+    name: '404',
+    path: '/404',
+    component: () => import('@/views/not-found/index.vue'),
+    meta: {
+      title: '404',
+      fullScreen: true
+    }
+  }
+];
+
+export default [...routes, ...wihitetRoutes];

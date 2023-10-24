@@ -30,7 +30,7 @@
                 <a href="javascript:;">个人信息</a>
               </a-menu-item>
               <a-menu-item>
-                <a href="javascript:;">退出登录</a>
+                <a href="javascript:;" @click="handleLogout">退出登录</a>
               </a-menu-item>
             </a-menu>
           </template>
@@ -41,13 +41,14 @@
 </template>
 
 <script setup lang="ts">
-  import { useMenusStore } from '@/store';
+  import { useAppStore, useMenusStore } from '@/store';
   import { storeToRefs } from 'pinia';
   import { ref, watchEffect } from 'vue';
   import { LogoGithubFilled } from '@ahcloud/icon-vue-next';
   import { useRouter } from 'vue-router';
 
   const menusStore = useMenusStore();
+  const appStore = useAppStore();
   const { headerMenus, activeMenus } = storeToRefs(menusStore);
   const selectMenuId = ref<string[]>([]);
   watchEffect(() => {
@@ -68,5 +69,12 @@
     if (menu && menu.path) {
       router.push(menu.path);
     }
+  };
+
+  // 退出登录
+  const handleLogout = () => {
+    menusStore.reset();
+    appStore.reset();
+    router.push('/login');
   };
 </script>

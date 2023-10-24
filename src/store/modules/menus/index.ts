@@ -50,15 +50,19 @@ export default defineStore('menus', () => {
   const setMenus = (menus: MenuType[]) => {
     menusData.value = menus;
     dataToMenuMap(menus, menusMap);
-    console.log(menusMap);
   };
-  const findFistSiderMenu = (id: string): MenuType | undefined => {
+  const findFistSiderMenu = (id?: string): MenuType | undefined => {
     // 深度搜索算法 查找菜单下第一个可用子菜单，注意 reverse() 使用
-    const headerMenu = menusData.value.find((item) => item.id === id);
-    if (!headerMenu || !headerMenu.children || headerMenu.children.length === 0) {
-      return;
+    let siderMenus: MenuType[] = [];
+    if (!id) {
+      siderMenus = [...[...menusData.value].reverse()];
+    } else {
+      const headerMenu = menusData.value.find((item) => item.id === id);
+      if (!headerMenu || !headerMenu.children || headerMenu.children.length === 0) {
+        return;
+      }
+      siderMenus = [...[...headerMenu.children].reverse()];
     }
-    const siderMenus = [...[...headerMenu.children].reverse()];
     let targetMenu: MenuType | undefined;
     while (!targetMenu && siderMenus.length > 0) {
       const menu = siderMenus.pop();
@@ -100,7 +104,14 @@ export default defineStore('menus', () => {
   const activeBreadcrumb = computed(() => {
     return [...[...activeMenus.value].reverse(), ...activeRoutes.value.slice(0, activeRoutes.value.length - 1)];
   });
+
+  const reset = () => {
+    menusData.value = [];
+    menusMap.clear();
+    activeRoutes.value = [];
+  };
   return {
+    reset,
     menusData,
     setMenus,
     headerMenus,

@@ -13,7 +13,12 @@ export default defineStore(
     const setPermissionIds = (ids: string[]) => {
       permissionIds.value = ids;
     };
+    const reset = () => {
+      token.value = '';
+      permissionIds.value = [];
+    };
     return {
+      reset,
       token,
       setToken,
       permissionIds,

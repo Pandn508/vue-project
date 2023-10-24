@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, type RouteRecordRaw, type RouteRecordSingleView } from 'vue-router';
 import type { RouteItemType } from '@/store/modules/menus/types';
 import routes from './routes';
+import { setupPermissionGuard } from './guard';
 
 function pruneRoute(route: RouteRecordRaw): RouteRecordRaw {
   const { children, ...rest } = route;
@@ -39,12 +40,10 @@ function routeToArr(routesData: RouteRecordRaw[]) {
 }
 
 const waterRoutes = routeToArr(routes);
-
-console.log(waterRoutes, 'waterRoutes');
-
 const router = createRouter({
   history: createWebHashHistory(),
   routes: waterRoutes
 });
 
+setupPermissionGuard(router);
 export default router;
