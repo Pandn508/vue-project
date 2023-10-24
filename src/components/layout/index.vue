@@ -1,20 +1,26 @@
 <template>
-  <a-layout>
-    <a-layout-header>
-      <div class="text-white">VUE3-TS-WEBPACK-PROJECT</div>
-      <a-menu></a-menu>
-    </a-layout-header>
+  <a-layout class="h-screen w-screen">
+    <HeaderMenus></HeaderMenus>
     <a-layout>
-      <a-layout-sider>
-        <a-menu></a-menu>
-      </a-layout-sider>
-    </a-layout>
-    <a-layout>
-      <a-breadcrumb></a-breadcrumb>
-      <a-layout-content>
-        <slot></slot>
-      </a-layout-content>
+      <SiderMenus></SiderMenus>
+      <LayoutContent></LayoutContent>
     </a-layout>
   </a-layout>
 </template>
-<script setup lang="ts"></script>
+
+<script setup lang="ts">
+  import { useMenusStore } from '@/store';
+  import { useRoute } from 'vue-router';
+  import { watchEffect } from 'vue';
+  import type { RouteItemType } from '@/store/modules/menus/types';
+  import HeaderMenus from './comps/header-menus.vue';
+  import SiderMenus from './comps/sider-menus.vue';
+  import LayoutContent from './comps/layout-content.vue';
+
+  const menusStore = useMenusStore();
+  const route = useRoute();
+  watchEffect(() => {
+    const routes = route.meta.parentRoutes as RouteItemType[];
+    menusStore.setActiveRoutes(routes);
+  });
+</script>

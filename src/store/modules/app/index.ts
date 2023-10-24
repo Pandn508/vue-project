@@ -1,24 +1,23 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import type { User } from './types';
 
 export default defineStore(
   'app',
   () => {
-    const user = ref<User>();
-    const updateUser = (info: User) => {
-      user.value = info;
-    };
     const token = ref<string>();
     const setToken = (tokenStr: string) => {
       token.value = tokenStr;
     };
 
+    const permissionIds = ref<string[]>([]);
+    const setPermissionIds = (ids: string[]) => {
+      permissionIds.value = ids;
+    };
     return {
-      user,
-      updateUser,
       token,
-      setToken
+      setToken,
+      permissionIds,
+      setPermissionIds
     };
   },
   {

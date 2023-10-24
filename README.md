@@ -9,10 +9,10 @@
 - [x] pinia
 - [x] uno-css
 - [ ] axios 封装
-- [ ] layout
+- [x] layout
 - [ ] login页面
 - [ ] 权限管理
-- [ ] 菜单管理
+- [x] 菜单管理
 - [x] git hook
 - [ ] 主题色支持
 - [ ] 国际化支持
