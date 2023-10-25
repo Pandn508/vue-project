@@ -68,6 +68,7 @@
     "swc-loader": "^0.2.3",
     "typescript": "*",
     "unocss": "^0.56.5",
+    "unplugin-vue-components": "^0.25.2",
     "vue-eslint-parser": "^9.3.2",
     "vue-loader": "^17.3.0",
     "vue-style-loader": "^4.1.3",

@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UnoCSS = require('@unocss/webpack').default;
+const { DefinePlugin } = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const { getPath, outFileName } = require('./utils');
 const { getSWCConfig } = require('./swcrc');
@@ -47,7 +48,12 @@ module.exports = {
         template: getPath('index.html'),
         filename: 'index.html',
       }
-    )
+    ),
+    new DefinePlugin({
+      BASE_URL: "'./'",
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false
+    }),
   ],
   optimization: {
     realContentHash: true
