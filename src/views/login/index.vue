@@ -1,11 +1,18 @@
 <template>
   <div class="h-full w-full flex flex justify-end items-center pr-80" :style="background">
+    <BrandLogo></BrandLogo>
     <div class="w-110 p12 backdrop-filter backdrop-blur-4 border border-white border-solid rd-10px">
-      <a-tabs>
-        <a-tab-pane key="account" tab="账号登录">
+      <a-tabs centered>
+        <a-tab-pane key="account">
+          <template #tab>
+            <span class="font-size-6">账号登录</span>
+          </template>
           <AccountForm></AccountForm>
         </a-tab-pane>
-        <a-tab-pane key="scan" tab="扫码登录">
+        <a-tab-pane key="scan">
+          <template #tab>
+            <span class="font-size-6">扫码登录</span>
+          </template>
           <ScanLogin></ScanLogin>
         </a-tab-pane>
       </a-tabs>
@@ -29,6 +36,7 @@
   import AccountForm from './comps/account-form.vue';
   import OtherLogin from './comps/other-login.vue';
   import ScanLogin from './comps/scan-login.vue';
+  import BrandLogo from './comps/brand-logo.vue';
 
   const appStore = useAppStore();
   const { appConfig } = storeToRefs(appStore);

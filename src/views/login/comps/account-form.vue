@@ -42,7 +42,9 @@
 </template>
 
 <script setup lang="ts">
+  import { useAppStore } from '@/store';
   import { reactive } from 'vue';
+  import { useRouter } from 'vue-router';
 
   interface FormState {
     username: string;
@@ -50,7 +52,8 @@
     code: string;
     autoLogin: boolean;
   }
-
+  const appStore = useAppStore();
+  const router = useRouter();
   const formState = reactive<FormState>({
     username: '',
     password: '',
@@ -58,7 +61,10 @@
     autoLogin: true
   });
 
-  const onFinish = () => {};
+  const onFinish = () => {
+    appStore.setToken('dsadsadsada');
+    router.replace('/');
+  };
   const onFinishFailed = () => {};
   const handleRefreshCode = () => {};
   const handleForgetPassword = () => {};

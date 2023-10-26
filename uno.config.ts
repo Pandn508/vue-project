@@ -3,6 +3,6 @@ import { defineConfig, presetAttributify, presetUno, transformerDirectives } fro
 export default defineConfig({
   rules: [],
   shortcuts: [],
-  presets: [presetAttributify(), presetUno()],
+  presets: [presetUno()],
   transformers: [transformerDirectives()]
 });
