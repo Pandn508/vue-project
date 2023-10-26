@@ -42,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new UnoCSS(),
+    UnoCSS(),
     new HtmlWebpackPlugin(
       {
         template: getPath('index.html'),
