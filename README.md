@@ -8,7 +8,7 @@
 - [x] vue-router
 - [x] pinia
 - [x] uno-css
-- [ ] axios 封装
+- [x] axios 封装
 - [x] layout
 - [x] login页面
 - [x] 权限管理
