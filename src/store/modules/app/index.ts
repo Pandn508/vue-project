@@ -38,9 +38,12 @@ export default defineStore(
     };
   },
   {
-    persist: {
-      // 持久化存储
-      paths: ['token']
-    }
+    // 持久化存储
+    persist: [
+      {
+        key: process.env.TOKEN_NAME || 'token',
+        paths: ['token']
+      }
+    ]
   }
 );

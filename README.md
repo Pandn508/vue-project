@@ -24,3 +24,23 @@
 - [ ] vscode校验规则和 commit 提交时的校验规则不一致
 - [ ] uno-css 样式不生效 color-#0D3184 这种样式不生效
 - [ ] uno-css pr-1 font-size-4 这种样式需要手动刷新才生效，非热更新
+
+## 使用文档
+
+### 请求使用方式
+
+```ts
+import service from '@/service';
+/**请求使用演示 */
+interface DemoType {
+  name: string;
+  desc: string;
+}
+export async function getDemoData() {
+  return service.get<DemoType>('/demo');
+}
+
+getDemoData().then((res) => {
+  res.data.name;
+});
+```
