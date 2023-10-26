@@ -1,8 +1,11 @@
 <template>
   <a-layout-header>
-    <div class="flex text-white">
-      <div>VUE3-TS-WEBPACK-PROJECT</div>
-      <div class="flex-1">
+    <div class="flex">
+      <div>
+        <img src="/public/logo.png" class="h-8" />
+        <span class="text-white">VUE3-TS-WEBPACK-PROJECT</span>
+      </div>
+      <div class="flex-1 px-4">
         <a-menu
           v-model:selectedKeys="selectMenuId"
           :items="headerMenus"
@@ -14,14 +17,14 @@
       </div>
       <div>
         <a-dropdown>
-          <div class="hover:cursor-pointer">
+          <div class="cursor-pointer">
             <a-space>
               <a-avatar>
                 <template #icon>
                   <LogoGithubFilled :size="28" fill="#fff" />
                 </template>
               </a-avatar>
-              <span> Admin </span>
+              <span class="text-white"> Admin </span>
             </a-space>
           </div>
           <template #overlay>
