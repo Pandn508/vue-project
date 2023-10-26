@@ -3,7 +3,8 @@ const WebpackBar = require('webpackbar');
 const common = require('./webpack.common.js');
 const server = require('../server.js');
 const Components = require('unplugin-vue-components/webpack');
-const { AntDesignVueResolver } =  require('unplugin-vue-components/resolvers');
+const { AntDesignVueResolver } = require('unplugin-vue-components/resolvers');
+const { getPath } = require('./utils.js');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -26,5 +27,12 @@ module.exports = merge(common, {
       include: [/\.vue$/, /\.vue\?vue/],
     })
   ],
+  devServer: {
+    static: {
+      directory: getPath('public'),
+      publicPath: '/public'
+    }
+  }
+}, {
   devServer: server
 })
