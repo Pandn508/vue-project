@@ -76,5 +76,6 @@ module.exports = {
 		'prefer-regex-literals': 0,
 		'import/no-extraneous-dependencies': 0,
 		'consistent-return': 0,
+		'import/prefer-default-export': 0,
 	}
 }

@@ -4,7 +4,7 @@ import App from './App.vue';
 import router from './router';
 import pinia from './store';
 import 'ant-design-vue/dist/reset.css';
-import '@unocss/reset/tailwind.css';
+import '@unocss/reset/normalize.css';
 /* eslint-disable */
 import 'uno.css';
 import '@/assets/styles/theme.css';

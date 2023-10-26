@@ -1,74 +1,42 @@
 <template>
-  <div class="h-full w-full flex justify-center items-center">
-    <div class="w-100 bg-white p2">
-      <h1 class="text-center pb-3">登录</h1>
-      <a-form
-        :model="formState"
-        name="basic"
-        :label-col="{ span: 8 }"
-        :wrapper-col="{ span: 16 }"
-        autocomplete="off"
-        @finish="onFinish"
-        @finishFailed="onFinishFailed"
-      >
-        <a-form-item
-          label="Username"
-          name="username"
-          :rules="[{ required: true, message: 'Please input your username!' }]"
-        >
-          <a-input v-model:value="formState.username" />
-        </a-form-item>
-
-        <a-form-item
-          label="Password"
-          name="password"
-          :rules="[{ required: true, message: 'Please input your password!' }]"
-        >
-          <a-input-password v-model:value="formState.password" />
-        </a-form-item>
-
-        <a-form-item name="remember" :wrapper-col="{ offset: 8, span: 16 }">
-          <a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
-        </a-form-item>
-
-        <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
-          <a-button type="primary" html-type="submit">Submit</a-button>
-        </a-form-item>
-      </a-form>
+  <div class="h-full w-full flex flex justify-end items-center pr-80" :style="background">
+    <div class="w-110 p12 backdrop-filter backdrop-blur-4 border border-white border-solid rd-10px">
+      <a-tabs>
+        <a-tab-pane key="account" tab="账号登录">
+          <AccountForm></AccountForm>
+        </a-tab-pane>
+        <a-tab-pane key="scan" tab="扫码登录">
+          <ScanLogin></ScanLogin>
+        </a-tab-pane>
+      </a-tabs>
+      <a-divider dashed class="border-color-#A2A8E4">
+        <span class="font-size-4 color-#181818">其他登录方式</span>
+      </a-divider>
+      <div class="flex justify-between">
+        <OtherLogin :icon="dingding" text="安恒内部演示账号登录"></OtherLogin>
+        <OtherLogin :icon="phone" text="游客账号登录"></OtherLogin>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { useAppStore } from '@/store';
-  import { reactive } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
-
-  interface FormState {
-    username: string;
-    password: string;
-    remember: boolean;
-  }
+  import { storeToRefs } from 'pinia';
+  import { computed } from 'vue';
+  import dingding from '@/assets/images/login/dingding.png';
+  import phone from '@/assets/images/login/phone.png';
+  import AccountForm from './comps/account-form.vue';
+  import OtherLogin from './comps/other-login.vue';
+  import ScanLogin from './comps/scan-login.vue';
 
   const appStore = useAppStore();
-  const route = useRoute();
-  const router = useRouter();
-  const formState = reactive<FormState>({
-    username: '',
-    password: '',
-    remember: true
+  const { appConfig } = storeToRefs(appStore);
+  const background = computed(() => {
+    return {
+      'background-image': `url(${appConfig.value?.loginBg})`,
+      'background-size': 'cover',
+      'background-repeat': 'no-repeat'
+    };
   });
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-    appStore.setToken('123456');
-    if (route.query.redirect) {
-      router.push(route.query.redirect as string);
-      return;
-    }
-    router.push('/');
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
 </script>
