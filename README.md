@@ -22,4 +22,5 @@
 ## 已知 bug
 
 - [ ] vscode校验规则和 commit 提交时的校验规则不一致
-- [ ] uno-css 样式不生效
+- [ ] uno-css 样式不生效 color-#0D3184 这种样式不生效
+- [ ] uno-css pr-1 font-size-4 这种样式需要手动刷新才生效，非热更新
