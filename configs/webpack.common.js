@@ -50,7 +50,7 @@ module.exports = {
       }
     ),
     new DefinePlugin({
-      ...loadEnv(),
+      'process.env': JSON.stringify(loadEnv()),
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false
     }),
