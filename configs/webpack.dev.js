@@ -34,7 +34,7 @@ module.exports = merge(common, {
   devServer: {
     static: {
       directory: getPath('public'),
-      publicPath: '/public'
+      publicPath: '/'
     }
   }
 }, {

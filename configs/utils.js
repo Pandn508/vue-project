@@ -23,5 +23,6 @@ function loadEnv() {
 module.exports = {
   getPath,
   outFileName,
-  loadEnv
+  loadEnv,
+  packageInfo
 }

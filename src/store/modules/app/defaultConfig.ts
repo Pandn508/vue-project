@@ -4,7 +4,7 @@ import { AppConfigType } from './types';
 export const defaultConfig: AppConfigType = {
   title: 'vue3-project-template',
   subtitle: 'webpack',
-  logo: '/public/logo.png',
+  logo: '/logo.png',
   // 登录配置
   loginBg,
   scanCode: true, // 扫码登录

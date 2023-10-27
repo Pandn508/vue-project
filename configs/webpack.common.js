@@ -2,10 +2,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UnoCSS = require('@unocss/webpack').default;
 const { DefinePlugin } = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
-const { getPath, outFileName, loadEnv } = require('./utils');
+const { getPath, outFileName, loadEnv, packageInfo } = require('./utils');
 const { getSWCConfig } = require('./swcrc');
 const styleLoader = require('./style');
 const staticLoader = require('./static');
+const info = packageInfo();
 /** * @type import('webpack').Configuration */
 module.exports = {
   entry: './src/main.ts',
@@ -44,7 +45,9 @@ module.exports = {
     UnoCSS(),
     new HtmlWebpackPlugin(
       {
-        template: getPath('index.html'),
+        title: info.name,
+        favicon: 'public/favicon.ico',
+        template: getPath('public/index.html'),
         filename: 'index.html',
       }
     ),

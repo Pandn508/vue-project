@@ -2,7 +2,7 @@
   <a-layout-header>
     <div class="flex">
       <div>
-        <img src="/public/logo.png" class="h-8" />
+        <img src="/logo.png" class="h-8" />
         <span class="text-white">VUE3-TS-WEBPACK-PROJECT</span>
       </div>
       <div class="flex-1 px-4">

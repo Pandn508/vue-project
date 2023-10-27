@@ -46,7 +46,7 @@ module.exports = merge(common, {
       patterns: [
         {
           from: getPath('public'),
-          to: getPath('dist/public'),
+          to: getPath('dist'),
           globOptions: {
             ignore: []
           }
