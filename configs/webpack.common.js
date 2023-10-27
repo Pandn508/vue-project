@@ -11,8 +11,7 @@ module.exports = {
   entry: './src/main.ts',
   output: {
     filename: outFileName,
-    path: getPath('dist'),
-    assetModuleFilename: 'static/assets/[name]_[hash][ext]'
+    path: getPath('dist')
   },
   module: {
     rules: [

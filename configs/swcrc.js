@@ -1,28 +1,27 @@
 const lodash = require('lodash');
 const config = {
   "$schema": "https://json.schemastore.org/swcrc",
-  "jsc": {
-    "parser": {
-      "syntax": "typescript",
-      "jsx": false,
-      "dynamicImport": false,
-      "privateMethod": false,
-      "functionBind": false,
-      "exportDefaultFrom": false,
-      "exportNamespaceFrom": false,
-      "decorators": false,
-      "decoratorsBeforeExport": false,
-      "topLevelAwait": false,
-      "importMeta": false
+  jsc: {
+    parser: {
+      syntax: "typescript",
+      jsx: false,
+      dynamicImport: false,
+      privateMethod: false,
+      functionBind: false,
+      exportDefaultFrom: false,
+      exportNamespaceFrom: false,
+      decorators: false,
+      decoratorsBeforeExport: false,
+      topLevelAwait: false,
+      importMeta: false
     },
-    "transform": null,
-    "target": "es2015",
-    "loose": false,
-    "externalHelpers": false,
+    transform: null,
+    loose: false,
+    externalHelpers: false,
     // Requires v1.2.50 or upper and requires target to be es2016 or upper.
-    "keepClassNames": false
+    keepClassNames: false
   },
-  "minify": false
+  minify: false
 }
 
 function getSWCConfig() {
@@ -30,9 +29,6 @@ function getSWCConfig() {
   if (isPord) {
     let swcrc = {
       minify: true,
-      jsc: {
-        target: 'es5',
-      },
       env: {
         forceAllTransforms: true,
         mode: "usage",
@@ -46,6 +42,11 @@ function getSWCConfig() {
     lodash.merge(swcrc, config);
     return swcrc;
   }
+  lodash.merge(config, {
+    jsc: {
+      target: "es2015",
+    }
+  })
   return config;
 }
 
