@@ -48,7 +48,7 @@ module.exports = merge(common, {
           from: getPath('public'),
           to: getPath('dist'),
           globOptions: {
-            ignore: []
+            ignore: ["**/index.html"]
           }
         }
       ]
