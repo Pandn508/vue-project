@@ -6,7 +6,7 @@
     :trigger="null"
     collapsible
   >
-    <div class="h-10 flex justify-center items-center">
+    <div class="h-40 flex justify-center items-center">
       <MenuUnfold v-if="!collapsed" :size="20" :fill="token.colorPrimary" @click="collapsed = true" />
       <MenuFold v-if="collapsed" :size="20" :fill="token.colorPrimary" @click="collapsed = false" />
     </div>

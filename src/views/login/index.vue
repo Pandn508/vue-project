@@ -1,23 +1,23 @@
 <template>
-  <div class="h-full w-full flex flex justify-end items-center pr-80" :style="background">
+  <div class="h-full w-full flex flex justify-end items-center pr-320" :style="background">
     <BrandLogo></BrandLogo>
-    <div class="w-110 p12 backdrop-filter backdrop-blur-4 border border-white border-solid rd-10px">
+    <div class="w-440 p48px backdrop-filter backdrop-blur-4 border border-white border-solid rd-10">
       <a-tabs centered>
         <a-tab-pane key="account">
           <template #tab>
-            <span class="font-size-6">账号登录</span>
+            <span class="font-size-24">账号登录</span>
           </template>
           <AccountForm></AccountForm>
         </a-tab-pane>
         <a-tab-pane key="scan">
           <template #tab>
-            <span class="font-size-6">扫码登录</span>
+            <span class="font-size-24">扫码登录</span>
           </template>
           <ScanLogin></ScanLogin>
         </a-tab-pane>
       </a-tabs>
       <a-divider dashed class="border-color-#A2A8E4">
-        <span class="font-size-4 color-#181818">其他登录方式</span>
+        <span class="font-size-16 color-#181818">其他登录方式</span>
       </a-divider>
       <div class="flex justify-between">
         <OtherLogin :icon="dingding" text="安恒内部演示账号登录"></OtherLogin>

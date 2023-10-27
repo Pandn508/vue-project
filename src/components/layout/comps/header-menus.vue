@@ -2,10 +2,10 @@
   <a-layout-header>
     <div class="flex">
       <div>
-        <img src="/logo.png" class="h-8" />
+        <img src="/logo.png" class="h-32" />
         <span class="text-white">VUE3-TS-WEBPACK-PROJECT</span>
       </div>
-      <div class="flex-1 px-4">
+      <div class="flex-1 px-16">
         <a-menu
           v-model:selectedKeys="selectMenuId"
           :items="headerMenus"

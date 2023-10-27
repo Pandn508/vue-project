@@ -10,10 +10,6 @@ module.exports = merge(common, {
   mode: 'development',
   stats: 'errors-only',
   devtool: 'eval-cheap-module-source-map',
-  cache: {
-    type: 'filesystem',
-    allowCollectingMemory: true,
-  },
   plugins: [
     new WebpackBar({
       reporters: ['fancy']

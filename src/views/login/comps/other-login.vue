@@ -1,7 +1,7 @@
 <template>
-  <div class="cursor-pointer h-27px inline-block">
-    <img class="w-27px" :src="props.icon" />
-    <span class="color-#555B66 ml-1 line-height-27px font-size-12px">{{ props.text }}</span>
+  <div class="cursor-pointer h-27 inline-block">
+    <img class="w-27" :src="props.icon" />
+    <span class="text-#555B66 ml-4 line-height-27 font-size-12">{{ props.text }}</span>
   </div>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
   <a-layout>
     <div
-      class="p2 pl-4 h-9 flex"
+      class="p2 pl-16 h-36 flex"
       :style="{ 'background-color': token.colorBgBase, borderLeft: `1px solid ${token.colorBorder}` }"
     >
-      <div v-if="activeBreadcrumb.length > 1" class="pr-2">
+      <div v-if="activeBreadcrumb.length > 1" class="pr-8">
         <ChevronLeftCircle :size="20" fill="#000" @click="router.back()" />
       </div>
       <a-breadcrumb>
@@ -22,7 +22,7 @@
       </a-breadcrumb>
     </div>
     <a-layout-content>
-      <div class="h-full w-full p4">
+      <div class="h-full w-full p16px">
         <RouterView />
       </div>
     </a-layout-content>
