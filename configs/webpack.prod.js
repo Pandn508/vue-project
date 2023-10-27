@@ -1,6 +1,8 @@
 const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const common = require('./webpack.common.js');
+const CopyPlugin = require('copy-webpack-plugin');
+const { getPath } = require('./utils.js');
 module.exports = merge(common, {
   mode: 'production',
   optimization: {
@@ -18,6 +20,19 @@ module.exports = merge(common, {
       })
     ]
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: getPath('public'),
+          to: getPath('dist/public'),
+          globOptions: {
+            ignore: []
+          }
+        }
+      ]
+    })
+  ],
   output: {
     clean: true,
     asyncChunks: true,
