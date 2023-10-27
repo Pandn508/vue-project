@@ -7,7 +7,8 @@
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development webpack serve --config ./configs/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config ./configs/webpack.prod.js",
-    "analyzer": "cross-env NODE_ENV=production ANALYZER=true webpack --config ./configs/webpack.prod.js",
+    "analyzer:size": "cross-env NODE_ENV=production ANALYZER=size webpack --config ./configs/webpack.analyzer.js",
+    "analyzer:time": "cross-env NODE_ENV=production ANALYZER=time webpack --config ./configs/webpack.analyzer.js",
     "lint": "npx lint-staged",
     "prepare": "husky install"
   },
@@ -70,6 +71,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "postcss-loader": "^7.3.3",
     "prettier": "^3.0.3",
+    "speed-measure-webpack-plugin": "^1.5.0",
     "swc-loader": "^0.2.3",
     "terser-webpack-plugin": "^5.3.9",
     "typescript": "*",
