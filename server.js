@@ -1,8 +1,8 @@
 module.exports = {
   hot: true,
   port: 3000,
-  client:{
+  client: {
     logging: 'warn'
   },
-  proxy:{}
+  proxy: {}
 }

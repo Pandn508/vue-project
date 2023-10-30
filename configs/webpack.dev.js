@@ -31,7 +31,8 @@ module.exports = merge(common, {
     static: {
       directory: getPath('public'),
       publicPath: '/'
-    }
+    },
+    historyApiFallback: process.env.HISTORY_TYPE === 'history',
   }
 }, {
   devServer: server
