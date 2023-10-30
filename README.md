@@ -44,3 +44,37 @@ getDemoData().then((res) => {
   res.data.name;
 });
 ```
+
+## 具体使用文档
+
+### 准备工作
+
+1.需要安装 vscode 插件 [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)、[UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss)、[Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+
+2.配置 vscode 保存时自动格式化代码
+在vscode 的工作区设置加入如下配置
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+```
+
+### 安装依赖和配置说明
+
+- 依赖管理
+- env 环境配置
+- proxy 配置
+- eslint 规则说明和配置
+- commitlint 提交规范配置
+- 启动命令说明
+- 其它配置说明
+
+### 项目开发说明
+
+- 项目目录结构说明
+- 需要实现的基础 api
+- store 说明
+- 路由和菜单关联方式
+- 权限管理
