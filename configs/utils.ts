@@ -1,5 +1,5 @@
-const path = require('path');
-const dotenv = require('dotenv');
+import path from 'path';
+import dotenv from 'dotenv';
 function getPath(_path) {
   return path.join(process.cwd(), _path);
 }
@@ -8,8 +8,7 @@ function packageInfo() {
 }
 function outFileName(pathData) {
   const info = packageInfo();
-  if (pathData.chunk.name === 'main')
-    return `static/js/${info.name}.main.js`;
+  if (pathData.chunk.name === 'main') return `static/js/${info.name}.main.js`;
   return 'static/js/[name].[chunkhash].js';
 }
 
@@ -20,14 +19,9 @@ function loadEnv() {
   });
   if (env.error) {
     console.error(env.error);
-    return {}
+    return {};
   }
   return env.parsed;
 }
 
-module.exports = {
-  getPath,
-  outFileName,
-  loadEnv,
-  packageInfo
-}
+export { getPath, outFileName, loadEnv, packageInfo };

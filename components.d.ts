@@ -30,7 +30,11 @@ declare module 'vue' {
     ASpace: typeof import('ant-design-vue/es')['Space']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
+    HeaderMenus: typeof import('./src/components/layout/comps/header-menus.vue')['default']
+    Layout: typeof import('./src/components/layout/index.vue')['default']
+    LayoutContent: typeof import('./src/components/layout/comps/layout-content.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SiderMenus: typeof import('./src/components/layout/comps/sider-menus.vue')['default']
   }
 }

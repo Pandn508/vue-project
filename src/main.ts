@@ -6,7 +6,7 @@ import pinia from './store';
 import 'ant-design-vue/dist/reset.css';
 import '@unocss/reset/normalize.css';
 /* eslint-disable */
-import 'uno.css';
+import 'virtual:uno.css';
 import '@/assets/styles/theme.css';
 
 const app = createApp(App);
