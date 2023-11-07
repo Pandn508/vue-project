@@ -38,10 +38,10 @@ function routeToArr(routesData: RouteRecordRaw[]) {
   setRouteToMap(routesData, []);
   return waterRoutes;
 }
-
+const basePath = process.env.BASE_PATH ?? '/';
 const waterRoutes = routeToArr(routes);
 const router = createRouter({
-  history: process.env.HISTORY_TYPE === 'history' ? createWebHistory() : createWebHashHistory(),
+  history: process.env.HISTORY_TYPE === 'history' ? createWebHistory(basePath) : createWebHashHistory(basePath),
   routes: waterRoutes
 });
 

@@ -6,7 +6,10 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 import { loadEnv } from './utils';
 import UnoCSS from 'unocss/vite';
 
+const env = loadEnv();
+
 export default defineConfig({
+  base: env?.BASE_PATH || '/',
   plugins: [
     vue(),
     UnoCSS(),
