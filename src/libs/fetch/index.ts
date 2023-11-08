@@ -1,8 +1,8 @@
+import { message } from 'ant-design-vue';
 import axios, { AxiosInstance } from 'axios';
 import type { InternalAxiosRequestConfig, AxiosResponse } from 'axios';
-import { message } from 'ant-design-vue';
-import pinia, { useAppStore, useMenusStore } from '@/store';
 import router from '@/router';
+import pinia, { useAppStore, useMenusStore } from '@/store';
 import { CreateAxiosConfig, ResponseType, RequestConfigType } from './types';
 
 export default class Request {

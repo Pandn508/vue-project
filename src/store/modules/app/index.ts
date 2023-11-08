@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import { AppConfigType } from './types';
+import { defineStore } from 'pinia';
 import { defaultConfig } from './defaultConfig';
+import { AppConfigType } from './types';
 
 export default defineStore(
   'app',

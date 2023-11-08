@@ -1,6 +1,6 @@
+import { Router } from 'vue-router';
 import { getMenus, getPermissions } from '@/api/common';
 import { useAppStore, useMenusStore } from '@/store';
-import { Router } from 'vue-router';
 
 export const WHITE_LIST: string[] = ['/404', '/login'];
 
@@ -34,7 +34,7 @@ export function setupPermissionGuard(router: Router) {
         next('/404');
         return;
       }
-      if (!appStore.permissionIds.includes(to.meta.permissionId as string)) {
+      if (!appStore.permissionIds.includes(to.meta.permissionId as string) && !to.meta.public) {
         next('/404');
         return;
       }

@@ -44,11 +44,11 @@
 </template>
 
 <script setup lang="ts">
-  import { useAppStore, useMenusStore } from '@/store';
-  import { storeToRefs } from 'pinia';
   import { ref, watchEffect } from 'vue';
-  import { LogoGithubFilled } from '@ahcloud/icon-vue-next';
   import { useRouter } from 'vue-router';
+  import { LogoGithubFilled } from '@ahcloud/icon-vue-next';
+  import { storeToRefs } from 'pinia';
+  import { useAppStore, useMenusStore } from '@/store';
 
   const menusStore = useMenusStore();
   const appStore = useAppStore();

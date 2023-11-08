@@ -42,9 +42,9 @@
 </template>
 
 <script setup lang="ts">
-  import { useAppStore } from '@/store';
   import { reactive } from 'vue';
   import { useRouter } from 'vue-router';
+  import { useAppStore } from '@/store';
 
   interface FormState {
     username: string;

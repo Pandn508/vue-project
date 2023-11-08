@@ -30,11 +30,11 @@
 </template>
 
 <script setup lang="ts">
-  import { useMenusStore } from '@/store';
-  import { storeToRefs } from 'pinia';
   import { RouterView, useRouter } from 'vue-router';
   import { ChevronRight, ChevronLeftCircle } from '@ahcloud/icon-vue-next';
   import { theme } from 'ant-design-vue';
+  import { storeToRefs } from 'pinia';
+  import { useMenusStore } from '@/store';
 
   const { useToken } = theme;
   const { token } = useToken();
