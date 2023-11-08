@@ -1,17 +1,26 @@
-import { resolve } from 'path';
-import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import Components from 'unplugin-vue-components/vite';
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
-import { loadEnv } from './utils';
+import { resolve } from 'path';
 import UnoCSS from 'unocss/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+import Components from 'unplugin-vue-components/vite';
+import { defineConfig } from 'vite';
+import { loadEnv } from './utils';
 
 const env = loadEnv();
 
 export default defineConfig({
   base: env?.BASE_PATH || '/',
   plugins: [
-    vue(),
+    vue(
+      // micro 按需生成
+      {
+        template: {
+          compilerOptions: {
+            isCustomElement: (tag) => /^micro-app/.test(tag)
+          }
+        }
+      }
+    ),
     UnoCSS(),
     Components({
       resolvers: [
@@ -35,7 +44,7 @@ export default defineConfig({
     extensions: ['.ts', '.js']
   },
   define: {
-    'process.env': JSON.stringify(loadEnv())
+    'process.env': JSON.stringify(env)
   },
   css: {}
 });
