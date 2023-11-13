@@ -28,6 +28,7 @@ declare module 'vue' {
     AQrcode: typeof import('ant-design-vue/es')['QRCode']
     AResult: typeof import('ant-design-vue/es')['Result']
     ASpace: typeof import('ant-design-vue/es')['Space']
+    ASteps: typeof import('ant-design-vue/es')['Steps']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
     HeaderMenus: typeof import('./src/components/layout/comps/header-menus.vue')['default']
