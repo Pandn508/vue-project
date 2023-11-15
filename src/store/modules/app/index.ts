@@ -1,8 +1,11 @@
 import { computed, ref } from 'vue';
+import { theme } from 'ant-design-vue';
 import { defineStore } from 'pinia';
 import { themeTokens, ThemeTypes } from '@/theme';
 import { defaultConfig } from './defaultConfig';
 import { AppConfigType } from './types';
+
+const { darkAlgorithm, defaultAlgorithm } = theme;
 
 export default defineStore(
   'app',
@@ -24,12 +27,14 @@ export default defineStore(
       appConfig.value = value;
     };
     // 主题
-    const themeType = ref<ThemeTypes>(ThemeTypes.Blue);
+    const themeType = ref<ThemeTypes>(ThemeTypes.Light);
     const setThemeType = (theme: ThemeTypes) => {
       themeType.value = theme;
     };
-    const themeToken = computed(() => {
-      return themeTokens[themeType.value] || themeTokens[ThemeTypes.Blue];
+    const theme = computed(() => {
+      return {
+        algorithm: themeType.value === ThemeTypes.Dark ? darkAlgorithm : defaultAlgorithm
+      };
     });
     // 水印
     const watermark = ref<string>('');
@@ -51,7 +56,7 @@ export default defineStore(
       setAppConfig,
       themeType,
       setThemeType,
-      themeToken,
+      theme,
       watermark,
       setWatermark
     };

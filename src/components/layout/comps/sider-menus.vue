@@ -13,6 +13,7 @@
     <a-menu
       v-model:selectedKeys="selectMenuId"
       v-model:openKeys="openKeys"
+      style="height: calc(100% - 40px)"
       mode="inline"
       :items="siderMenus"
       @click="handleSelect"

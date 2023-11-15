@@ -16,23 +16,12 @@
         ></a-menu>
       </div>
       <a-flex align="center" justify="center">
-        <a-popover>
-          <div class="w-16 h-16 rounded-full cursor-pointer" :class="`bg-${themeColor}`"></div>
-          <template #content>
-            <a-flex gap="small">
-              <div
-                class="w-16 h-16 rounded-full bg-#134bea cursor-pointer"
-                @click="handleChangeTheme(ThemeTypes.Blue)"
-              ></div>
-              <div
-                class="w-16 h-16 rounded-full bg-#c41424 cursor-pointer"
-                @click="handleChangeTheme(ThemeTypes.Red)"
-              ></div>
-            </a-flex>
-          </template>
-        </a-popover>
+        <a-button type="text" shape="circle" @click="handleChangeTheme">
+          <IconDark v-if="themeType === ThemeTypes.Dark" />
+          <IconLight v-if="themeType === ThemeTypes.Light" />
+        </a-button>
       </a-flex>
-      <div class="ml-16">
+      <div class="ml-8">
         <a-dropdown>
           <div class="cursor-pointer">
             <a-space>
@@ -71,11 +60,9 @@
   const menusStore = useMenusStore();
   const appStore = useAppStore();
   // 主题功能
-  const { themeToken } = storeToRefs(appStore);
-  const themeColor = computed(() => {
-    return themeToken.value.colorPrimary;
-  });
-  const handleChangeTheme = (type: ThemeTypes) => {
+  const { themeType } = storeToRefs(appStore);
+  const handleChangeTheme = () => {
+    const type = themeType.value === ThemeTypes.Dark ? ThemeTypes.Light : ThemeTypes.Dark;
     appStore.setThemeType(type);
   };
   // 菜单

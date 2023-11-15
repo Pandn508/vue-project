@@ -1,10 +1,5 @@
 <template>
-  <a-config-provider
-    :locale="zhCN"
-    :theme="{
-      token: themeToken
-    }"
-  >
+  <a-config-provider :locale="zhCN" :theme="theme">
     <Layout>
       <RouterView></RouterView>
     </Layout>
@@ -22,7 +17,7 @@
 
   const appStore = useAppStore();
   // 主题
-  const { themeToken } = storeToRefs(appStore);
+  const { theme } = storeToRefs(appStore);
 
   getWebsiteConfig()
     .then((data) => {

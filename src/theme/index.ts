@@ -2,8 +2,8 @@ import BlueToken from './blue';
 import RedToken from './red';
 
 export enum ThemeTypes {
-  Blue = 'blue',
-  Red = 'red'
+  Light = 'light',
+  Dark = 'dark'
 }
 
 export const themeTokens = {
