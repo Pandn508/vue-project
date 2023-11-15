@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia';
 import { computed, h, PropType, ref, type VNode } from 'vue';
 import * as Icons from '@ahcloud/icon-vue-next';
 import type { MenuProps } from 'ant-design-vue';
+import { defineStore } from 'pinia';
 import type { MenuType, RouteItemType } from './types';
 
 function renderIcon(name?: string): VNode {

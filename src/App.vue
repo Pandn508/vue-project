@@ -15,8 +15,8 @@
   import { RouterView } from 'vue-router';
   import zhCN from 'ant-design-vue/es/locale/zh_CN';
   import { storeToRefs } from 'pinia';
-  import Layout from './components/layout/index.vue';
   import { getWebsiteConfig } from './api/common';
+  import Layout from './components/layout/index.vue';
   import { useAppStore } from './store';
   import { AppConfigType } from './store/modules/app/types';
 

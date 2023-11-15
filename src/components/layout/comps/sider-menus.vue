@@ -21,12 +21,12 @@
 </template>
 
 <script setup lang="ts">
-  import { useMenusStore } from '@/store';
-  import { theme } from 'ant-design-vue';
-  import { storeToRefs } from 'pinia';
   import { ref, watchEffect } from 'vue';
   import { useRouter } from 'vue-router';
   import { MenuUnfold, MenuFold } from '@ahcloud/icon-vue-next';
+  import { theme } from 'ant-design-vue';
+  import { storeToRefs } from 'pinia';
+  import { useMenusStore } from '@/store';
 
   // 菜单折叠逻辑
   const collapsed = ref(false);

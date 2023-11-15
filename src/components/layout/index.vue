@@ -12,14 +12,14 @@
 </template>
 
 <script setup lang="ts">
-  import { useAppStore, useMenusStore } from '@/store';
-  import { useRoute } from 'vue-router';
   import { computed, watchEffect } from 'vue';
+  import { useRoute } from 'vue-router';
   import { storeToRefs } from 'pinia';
+  import { useAppStore, useMenusStore } from '@/store';
   import type { RouteItemType } from '@/store/modules/menus/types';
   import HeaderMenus from './comps/header-menus.vue';
-  import SiderMenus from './comps/sider-menus.vue';
   import LayoutContent from './comps/layout-content.vue';
+  import SiderMenus from './comps/sider-menus.vue';
 
   const appStore = useAppStore();
   const { watermark } = storeToRefs(appStore);

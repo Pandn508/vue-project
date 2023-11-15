@@ -28,15 +28,15 @@
 </template>
 
 <script lang="ts" setup>
-  import { useAppStore } from '@/store';
-  import { storeToRefs } from 'pinia';
   import { computed } from 'vue';
+  import { storeToRefs } from 'pinia';
   import dingding from '@/assets/images/login/dingding.png';
   import phone from '@/assets/images/login/phone.png';
+  import { useAppStore } from '@/store';
   import AccountForm from './comps/account-form.vue';
+  import BrandLogo from './comps/brand-logo.vue';
   import OtherLogin from './comps/other-login.vue';
   import ScanLogin from './comps/scan-login.vue';
-  import BrandLogo from './comps/brand-logo.vue';
 
   const appStore = useAppStore();
   const { appConfig } = storeToRefs(appStore);

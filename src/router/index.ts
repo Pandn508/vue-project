@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, createWebHistory, type RouteRecordRaw } from 'vue-router';
 import type { RouteItemType } from '@/store/modules/menus/types';
-import routes from './routes';
 import { setupPermissionGuard } from './guard';
+import routes from './routes';
 
 function pruneRoute(route: RouteRecordRaw): RouteRecordRaw {
   const { children, ...rest } = route;

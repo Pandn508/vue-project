@@ -61,11 +61,11 @@
 </template>
 
 <script setup lang="ts">
-  import { useAppStore, useMenusStore } from '@/store';
-  import { storeToRefs } from 'pinia';
   import { ref, watchEffect, computed } from 'vue';
-  import { LogoGithubFilled } from '@ahcloud/icon-vue-next';
   import { useRouter } from 'vue-router';
+  import { LogoGithubFilled } from '@ahcloud/icon-vue-next';
+  import { storeToRefs } from 'pinia';
+  import { useAppStore, useMenusStore } from '@/store';
   import { ThemeTypes } from '@/theme';
 
   const menusStore = useMenusStore();

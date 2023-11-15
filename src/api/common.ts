@@ -44,7 +44,7 @@ export async function getMenus(): Promise<MenuType[]> {
 
 // 获取权限数据
 export async function getPermissions() {
-  return ['home:index', 'example:index', 'example:add', 'submenu1:index'];
+  return ['base::home:index', 'base::example:index', 'base::example:add', 'base::submenu1:index'];
 }
 
 // 获取网站配置
