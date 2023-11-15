@@ -15,7 +15,24 @@
           @click="handleSelect"
         ></a-menu>
       </div>
-      <div>
+      <a-flex align="center" justify="center">
+        <a-popover>
+          <div class="w-16 h-16 rounded-full cursor-pointer" :class="`bg-${themeColor}`"></div>
+          <template #content>
+            <a-flex gap="small">
+              <div
+                class="w-16 h-16 rounded-full bg-#134bea cursor-pointer"
+                @click="handleChangeTheme(ThemeTypes.Blue)"
+              ></div>
+              <div
+                class="w-16 h-16 rounded-full bg-#c41424 cursor-pointer"
+                @click="handleChangeTheme(ThemeTypes.Red)"
+              ></div>
+            </a-flex>
+          </template>
+        </a-popover>
+      </a-flex>
+      <div class="ml-16">
         <a-dropdown>
           <div class="cursor-pointer">
             <a-space>
@@ -46,12 +63,22 @@
 <script setup lang="ts">
   import { useAppStore, useMenusStore } from '@/store';
   import { storeToRefs } from 'pinia';
-  import { ref, watchEffect } from 'vue';
+  import { ref, watchEffect, computed } from 'vue';
   import { LogoGithubFilled } from '@ahcloud/icon-vue-next';
   import { useRouter } from 'vue-router';
+  import { ThemeTypes } from '@/theme';
 
   const menusStore = useMenusStore();
   const appStore = useAppStore();
+  // 主题功能
+  const { themeToken } = storeToRefs(appStore);
+  const themeColor = computed(() => {
+    return themeToken.value.colorPrimary;
+  });
+  const handleChangeTheme = (type: ThemeTypes) => {
+    appStore.setThemeType(type);
+  };
+  // 菜单
   const { headerMenus, activeMenus } = storeToRefs(menusStore);
   const selectMenuId = ref<string[]>([]);
   watchEffect(() => {

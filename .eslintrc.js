@@ -45,7 +45,6 @@ module.exports = {
 		"@typescript-eslint"
 	],
 	rules: {
-
 		'prettier/prettier': 1,
 		// Vue: Recommended rules to be closed or modify
 		'vue/require-default-prop': 0,
@@ -77,5 +76,7 @@ module.exports = {
 		'import/no-extraneous-dependencies': 0,
 		'consistent-return': 0,
 		'import/prefer-default-export': 0,
+		"no-shadow": "off",
+		"@typescript-eslint/no-shadow": "warn"
 	}
 }

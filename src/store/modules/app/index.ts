@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { themeTokens, ThemeTypes } from '@/theme';
 import { AppConfigType } from './types';
 import { defaultConfig } from './defaultConfig';
 
@@ -22,6 +23,19 @@ export default defineStore(
       const value = { ...defaultConfig, ...config };
       appConfig.value = value;
     };
+    // 主题
+    const themeType = ref<ThemeTypes>(ThemeTypes.Blue);
+    const setThemeType = (theme: ThemeTypes) => {
+      themeType.value = theme;
+    };
+    const themeToken = computed(() => {
+      return themeTokens[themeType.value] || themeTokens[ThemeTypes.Blue];
+    });
+    // 水印
+    const watermark = ref<string>('');
+    const setWatermark = (watermarkStr: string) => {
+      watermark.value = watermarkStr;
+    };
     // 重置数据
     const reset = () => {
       token.value = '';
@@ -34,7 +48,12 @@ export default defineStore(
       permissionIds,
       setPermissionIds,
       appConfig,
-      setAppConfig
+      setAppConfig,
+      themeType,
+      setThemeType,
+      themeToken,
+      watermark,
+      setWatermark
     };
   },
   {
