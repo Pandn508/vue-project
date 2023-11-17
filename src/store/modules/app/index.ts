@@ -31,8 +31,13 @@ export default defineStore(
     const setThemeType = (theme: ThemeTypes) => {
       themeType.value = theme;
     };
+    const themeTokenType = ref('blue');
+    const setThemeTokenType = (theme: string) => {
+      themeTokenType.value = theme;
+    };
     const theme = computed(() => {
       return {
+        token: themeTokenType.value === 'red' ? themeTokens.red : themeTokens.blue,
         algorithm: themeType.value === ThemeTypes.Dark ? darkAlgorithm : defaultAlgorithm
       };
     });
@@ -58,7 +63,9 @@ export default defineStore(
       setThemeType,
       theme,
       watermark,
-      setWatermark
+      setWatermark,
+      themeTokenType,
+      setThemeTokenType
     };
   },
   {
