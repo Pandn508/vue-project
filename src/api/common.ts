@@ -11,29 +11,56 @@ export async function getMenus(): Promise<MenuType[]> {
       path: '/home'
     },
     {
-      id: 'example',
-      title: '顶部菜单',
-      icon: 'AlipayCircleOutlined',
+      id: 'theme',
+      title: '主题演示',
+      icon: 'WechatOutlined',
+      path: '/theme'
+    },
+    {
+      id: 'sum-one',
+      title: '一层菜单',
+      icon: 'WechatOutlined',
+      path: '/sum-one'
+    },
+    {
+      id: 'sum-more',
+      title: '多层菜单',
+      icon: 'WechatOutlined',
       children: [
         {
-          id: 'menu1',
-          title: '侧边菜单',
-          icon: 'TaobaoOutlined',
-          path: '/example'
+          id: 'sum-more-0',
+          title: '二级菜单',
+          path: '/sum-more-0'
         },
         {
-          id: 'menuSub',
-          title: '菜单分类',
+          id: 'sum-more-1',
+          title: '二级菜单分类1',
           children: [
             {
-              id: 'menuSub1',
-              title: '子菜单 1',
-              path: '/submenu1'
+              id: 'sum-more-1-0',
+              title: '三级菜单',
+              path: '/sum-more-1-0'
             },
             {
-              id: 'menuSub2',
-              title: '子菜单 2',
-              path: '/submenu2'
+              id: 'sum-more-1-1',
+              title: '自动添加前缀三级菜单',
+              path: '/sum-more/sum-more-1-1'
+            },
+            {
+              id: 'sum-more-1-2',
+              title: '有前缀三级菜单',
+              path: '/sum-more/sum-more-1-2'
+            }
+          ]
+        },
+        {
+          id: 'sum-more-2',
+          title: '二级菜单分类2',
+          children: [
+            {
+              id: 'sum-more-2-1',
+              title: '自动添加多个前缀三级菜单',
+              path: '/sum-more/sum-more-2/sum-more-2-1'
             }
           ]
         }
@@ -44,7 +71,7 @@ export async function getMenus(): Promise<MenuType[]> {
 
 // 获取权限数据
 export async function getPermissions() {
-  return ['base::home:index', 'base::example:index', 'base::example:add', 'base::submenu1:index'];
+  return ['base::home:index', 'base::theme:index', 'sum-one', 'sum-two', 'sum-more'];
 }
 
 // 获取网站配置

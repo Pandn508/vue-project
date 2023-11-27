@@ -11,42 +11,78 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
-    name: 'base::example',
-    path: '/example',
-    component: () => import('@/views/example/index.vue'),
+    name: 'base::theme',
+    path: '/theme',
+    component: () => import('@/views/theme/index.vue'),
     meta: {
-      title: '示例',
-      permissionId: 'base::example:index'
+      title: '主题',
+      permissionId: 'base::theme:index'
+    }
+  },
+  {
+    name: 'sum-one',
+    path: '/sum-one',
+    component: () => import('@/views/routers-menus/index.vue'),
+    meta: {
+      title: 'sum-one',
+      permissionId: 'sum-one'
+    }
+  },
+  {
+    name: 'sum-more',
+    path: '/sum-more',
+    meta: {
+      title: 'sum-more',
+      permissionId: 'sum-more'
     },
     children: [
       {
-        name: 'base::example:add',
-        path: 'add',
-        component: () => import('@/views/example/add.vue'),
+        name: 'sum-more-0',
+        component: () => import('@/views/routers-menus/index.vue'),
+        path: '/sum-more-0',
         meta: {
-          title: '添加',
-          permissionId: 'base::example:add'
+          permissionId: 'sum-more'
         }
+      },
+      {
+        name: 'sum-more-1-0',
+        component: () => import('@/views/routers-menus/index.vue'),
+        path: '/sum-more-1-0',
+        meta: {
+          permissionId: 'sum-more'
+        }
+      },
+      {
+        name: 'sum-more-1-1',
+        component: () => import('@/views/routers-menus/index.vue'),
+        path: 'sum-more-1-1',
+        meta: {
+          permissionId: 'sum-more'
+        }
+      },
+      {
+        name: 'sum-more-1-2',
+        component: () => import('@/views/routers-menus/index.vue'),
+        path: '/sum-more/sum-more-1-2',
+        meta: {
+          permissionId: 'sum-more'
+        }
+      },
+      {
+        name: 'sum-more-2',
+        path: 'sum-more-2',
+        children: [
+          {
+            name: 'sum-more-2-1',
+            component: () => import('@/views/routers-menus/index.vue'),
+            path: 'sum-more-2-1',
+            meta: {
+              permissionId: 'sum-more'
+            }
+          }
+        ]
       }
     ]
-  },
-  {
-    name: 'base::submenu1',
-    path: '/submenu1',
-    component: () => import('@/views/example/index.vue'),
-    meta: {
-      title: '示例',
-      permissionId: 'base::submenu1:index'
-    }
-  },
-  {
-    name: 'base::submenu2',
-    path: '/submenu2',
-    component: () => import('@/views/example/index.vue'),
-    meta: {
-      title: '示例',
-      permissionId: 'base::submenu2:index'
-    }
   }
 ];
 

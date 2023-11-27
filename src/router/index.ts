@@ -21,7 +21,8 @@ function routeToArr(routesData: RouteRecordRaw[]) {
       const routeItems = [
         {
           path: item.path,
-          title: item?.meta?.title || ''
+          title: item?.meta?.title || '',
+          component: !!item.component
         } as RouteItemType,
         ...parents
       ];

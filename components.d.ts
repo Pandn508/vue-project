@@ -33,6 +33,7 @@ declare module 'vue' {
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
     AWatermark: typeof import('ant-design-vue/es')['Watermark']
+    Card: typeof import('./src/components/card/index.vue')['default']
     HeaderMenus: typeof import('./src/components/layout/comps/header-menus.vue')['default']
     IconDark: typeof import('./src/components/layout/comps/icon-dark.vue')['default']
     IconLight: typeof import('./src/components/layout/comps/icon-light.vue')['default']

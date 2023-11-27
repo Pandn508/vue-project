@@ -9,4 +9,5 @@ export interface MenuType {
 export interface RouteItemType {
   path: string;
   title: string;
+  component: boolean;
 }

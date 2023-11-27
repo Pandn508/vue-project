@@ -83,7 +83,7 @@ export default defineStore('menus', () => {
   // 激活路由的层级关系
   const activeRoutes = ref<RouteItemType[]>([]);
   const setActiveRoutes = (routes: RouteItemType[] = []) => {
-    activeRoutes.value = routes;
+    activeRoutes.value = routes.filter((route) => route.component);
   };
   // 依据最高层的路由路径反向查找激活菜单
   const activeMenus = computed(() => {
