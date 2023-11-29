@@ -36,6 +36,7 @@ declare module 'vue' {
     Card: typeof import('./src/components/card/index.vue')['default']
     HeaderMenus: typeof import('./src/components/layout/comps/header-menus.vue')['default']
     IconDark: typeof import('./src/components/layout/comps/icon-dark.vue')['default']
+    IconI18n: typeof import('./src/components/layout/comps/icon-i18n.vue')['default']
     IconLight: typeof import('./src/components/layout/comps/icon-light.vue')['default']
     Layout: typeof import('./src/components/layout/index.vue')['default']
     LayoutContent: typeof import('./src/components/layout/comps/layout-content.vue')['default']

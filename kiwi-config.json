@@ -1,0 +1,24 @@
+{
+  "fileType": "ts",
+  "srcLang": "zh-CN",
+  "distLangs": [
+    "en-US"
+  ],
+  "googleApiKey": "",
+  "baiduApiKey": {
+    "appId": "",
+    "appKey": ""
+  },
+  "baiduLangMap": {
+    "en-US": "en",
+    "zh-TW": "cht"
+  },
+  "translateOptions": {
+    "concurrentLimit": 10,
+    "requestOptions": {}
+  },
+  "defaultTranslateKeyApi": "Pinyin",
+  "importI18N": "",
+  "ignoreDir": [],
+  "ignoreFile": []
+}

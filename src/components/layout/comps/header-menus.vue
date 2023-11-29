@@ -16,6 +16,9 @@
         ></a-menu>
       </div>
       <a-flex align="center" justify="center">
+        <a-button type="text" shape="circle">
+          <IconI18n></IconI18n>
+        </a-button>
         <a-button type="text" shape="circle" @click="handleChangeTheme">
           <IconDark v-if="themeType === ThemeTypes.Dark" />
           <IconLight v-if="themeType === ThemeTypes.Light" />

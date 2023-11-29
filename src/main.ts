@@ -7,6 +7,7 @@ import 'ant-design-vue/dist/reset.css';
 import 'virtual:uno.css';
 import '@/assets/styles/theme.css';
 import App from './App.vue';
+import i18n from './locale/index';
 // micro按需生成
 import { startMicro } from './micro';
 import router from './router';
@@ -18,6 +19,7 @@ app.use(pinia);
 // micro按需生成
 startMicro(router);
 
+i18n(app);
 app.use(Antd);
 app.use(router);
 app.mount('#app');
