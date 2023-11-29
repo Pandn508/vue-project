@@ -6,60 +6,60 @@ export async function getMenus(): Promise<MenuType[]> {
   return [
     {
       id: 'home',
-      title: '首页',
+      title: I18N.common.home,
       icon: 'WechatOutlined',
       path: '/home'
     },
     {
       id: 'theme',
-      title: '主题演示',
+      title: I18N.api.common.zhuTiYanShi,
       icon: 'WechatOutlined',
       path: '/theme'
     },
     {
       id: 'sum-one',
-      title: '一层菜单',
+      title: I18N.api.common.yiCengCaiDan,
       icon: 'WechatOutlined',
       path: '/sum-one'
     },
     {
       id: 'sum-more',
-      title: '多层菜单',
+      title: I18N.api.common.duoCengCaiDan,
       icon: 'WechatOutlined',
       children: [
         {
           id: 'sum-more-0',
-          title: '二级菜单',
+          title: I18N.api.common.erJiCaiDan,
           path: '/sum-more-0'
         },
         {
           id: 'sum-more-1',
-          title: '二级菜单分类1',
+          title: I18N.api.common.erJiCaiDanFen2,
           children: [
             {
               id: 'sum-more-1-0',
-              title: '三级菜单',
+              title: I18N.api.common.sanJiCaiDan,
               path: '/sum-more-1-0'
             },
             {
               id: 'sum-more-1-1',
-              title: '自动添加前缀三级菜单',
+              title: I18N.api.common.ziDongTianJiaQian,
               path: '/sum-more/sum-more-1-1'
             },
             {
               id: 'sum-more-1-2',
-              title: '有前缀三级菜单',
+              title: I18N.api.common.youQianZhuiSanJi,
               path: '/sum-more/sum-more-1-2'
             }
           ]
         },
         {
           id: 'sum-more-2',
-          title: '二级菜单分类2',
+          title: I18N.api.common.erJiCaiDanFen,
           children: [
             {
               id: 'sum-more-2-1',
-              title: '自动添加多个前缀三级菜单',
+              title: I18N.api.common.ziDongTianJiaDuo,
               path: '/sum-more/sum-more-2/sum-more-2-1'
             }
           ]

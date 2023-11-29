@@ -3,7 +3,7 @@
     <a-qrcode value="http://www.antdv.com" :size="195" @refresh="() => console.log('refresh')" />
     <div class="mt-24">
       <img src="~@/assets/images/login/wechat.png" />
-      <span>请使用微信扫码登录</span>
+      <span>{{ $t('I18N.login.qingShiYongWeiXin') }}</span>
     </div>
   </div>
 </template>

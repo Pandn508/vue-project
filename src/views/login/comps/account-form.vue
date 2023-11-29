@@ -1,41 +1,46 @@
 <template>
   <div>
     <a-form :model="formState" autocomplete="off" @finish="onFinish" @finishFailed="onFinishFailed">
-      <a-form-item name="username" :rules="[{ required: true, message: '必填项' }]">
-        <a-input v-model:value="formState.username" placeholder="请输入用户名" allow-clear>
+      <a-form-item name="username" :rules="[{ required: true, message: $t('I18N.login.biTianXiang') }]">
+        <a-input v-model:value="formState.username" :placeholder="$t('I18N.login.qingShuRuYongHu')" allow-clear>
           <template #prefix>
             <img src="~@/assets/images/login/user.png" />
           </template>
         </a-input>
       </a-form-item>
-      <a-form-item name="password" :rules="[{ required: true, message: '必填项' }]">
-        <a-input-password v-model:value="formState.password" placeholder="请输入密码" allow-clear>
+      <a-form-item name="password" :rules="[{ required: true, message: $t('I18N.login.biTianXiang') }]">
+        <a-input-password v-model:value="formState.password" :placeholder="$t('I18N.login.qingShuRuMiMa')" allow-clear>
           <template #prefix>
             <img src="~@/assets/images/login/password.png" />
           </template>
         </a-input-password>
       </a-form-item>
-      <a-form-item name="code" :rules="[{ required: true, message: '必填项' }]">
-        <a-input v-model:value="formState.code" placeholder="请输入验证码" allow-clear>
+      <a-form-item name="code" :rules="[{ required: true, message: $t('I18N.login.biTianXiang') }]">
+        <a-input v-model:value="formState.code" :placeholder="$t('I18N.login.qingShuRuYanZheng')" allow-clear>
           <template #prefix>
             <img src="~@/assets/images/login/code.png" />
           </template>
           <template #suffix>
-            <a class="cursor-pointer" href="javascript;" @click="handleRefreshCode">获取验证码</a>
+            <a class="cursor-pointer" href="javascript;" @click="handleRefreshCode">{{
+              $t('I18N.login.huoQuYanZhengMa')
+            }}</a>
           </template>
         </a-input>
       </a-form-item>
       <a-form-item>
         <div class="flex justify-between">
-          <a-checkbox v-model:checked="formState.autoLogin">5天内自动登录</a-checkbox>
-          <div class="cursor-pointer" @click="handleForgetPassword">忘记密码</div>
+          <a-checkbox v-model:checked="formState.autoLogin">{{ $t('I18N.login.tianNeiZiDongDeng') }}</a-checkbox>
+          <div class="cursor-pointer" @click="handleForgetPassword">{{ $t('I18N.login.wangJiMiMa') }}</div>
         </div>
       </a-form-item>
       <a-form-item>
-        <a-button type="primary" class="w-full" html-type="submit">登录</a-button>
+        <a-button type="primary" class="w-full" html-type="submit">{{ $t('I18N.common.login') }}</a-button>
       </a-form-item>
       <div>
-        <a-checkbox v-model:checked="formState.autoLogin"> 同意<a>隐私政策</a>和<a>第三方信息共享政策</a> </a-checkbox>
+        <a-checkbox v-model:checked="formState.autoLogin">
+          {{ $t('I18N.login.tongYi') }}<a>{{ $t('I18N.login.yinSiZhengCe') }}</a
+          >{{ $t('I18N.login.he') }}<a>{{ $t('I18N.login.diSanFangXinXi') }}</a>
+        </a-checkbox>
       </div>
     </a-form>
   </div>

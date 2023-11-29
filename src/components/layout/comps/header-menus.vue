@@ -39,10 +39,10 @@
           <template #overlay>
             <a-menu>
               <a-menu-item>
-                <a href="javascript:;">个人信息</a>
+                <a href="javascript:;">{{ $t('I18N.layout.geRenXinXi') }}</a>
               </a-menu-item>
               <a-menu-item>
-                <a href="javascript:;" @click="handleLogout">退出登录</a>
+                <a href="javascript:;" @click="handleLogout">{{ $t('I18N.layout.tuiChuDengLu') }}</a>
               </a-menu-item>
             </a-menu>
           </template>

@@ -5,23 +5,23 @@
       <a-tabs centered>
         <a-tab-pane key="account">
           <template #tab>
-            <span class="font-size-24">账号登录</span>
+            <span class="font-size-24">{{ $t('I18N.login.zhangHaoDengLu') }}</span>
           </template>
           <AccountForm></AccountForm>
         </a-tab-pane>
         <a-tab-pane key="scan">
           <template #tab>
-            <span class="font-size-24">扫码登录</span>
+            <span class="font-size-24">{{ $t('I18N.login.saoMaDengLu') }}</span>
           </template>
           <ScanLogin></ScanLogin>
         </a-tab-pane>
       </a-tabs>
       <a-divider dashed class="border-color-#A2A8E4">
-        <span class="font-size-16 color-#181818">其他登录方式</span>
+        <span class="font-size-16 color-#181818">{{ $t('I18N.login.qiTaDengLuFang') }}</span>
       </a-divider>
       <div class="flex justify-between">
-        <OtherLogin :icon="dingding" text="安恒内部演示账号登录"></OtherLogin>
-        <OtherLogin :icon="phone" text="游客账号登录"></OtherLogin>
+        <OtherLogin :icon="dingding" :text="$t('I18N.login.anHengNeiBuYan')"></OtherLogin>
+        <OtherLogin :icon="phone" :text="$t('I18N.login.youKeZhangHaoDeng')"></OtherLogin>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <h1>主题</h1>
+    <h1>{{ $t('I18N.theme.zhuTi') }}</h1>
     <a-flex gap="16">
       <a-button @click="changeColorPrimary('blue')">
         <div class="w-16 h-16 bg-#134bea"></div>

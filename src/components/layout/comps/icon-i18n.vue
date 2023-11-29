@@ -13,6 +13,6 @@
 <style scoped>
   .i18n-select span {
     display: inline-block;
-    margin-top: 2px;
+    margin-top: 3px;
   }
 </style>
