@@ -15,14 +15,15 @@
 - [x] 菜单管理
 - [x] git hook
 - [x] 主题色支持
-- [ ] 国际化支持
+- [x] 国际化支持
 - [x] 使用文档编写
 - [ ] 微前端
 - [x] 水印功能
+- [ ] css规范
 
 ## 已知 bug
 
-- [ ] vscode校验规则和 commit 提交时的校验规则不一致
+- [x] vscode校验规则和 commit 提交时的校验规则不一致
 - [ ] uno-css 样式不生效 color-#0D3184 这种样式不生效
 - [ ] uno-css pr-1 font-size-4 这种样式需要手动刷新才生效，非热更新
 
@@ -32,6 +33,7 @@
 
 ```ts
 import service from '@/service';
+
 /**请求使用演示 */
 interface DemoType {
   name: string;
