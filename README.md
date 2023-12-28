@@ -1,8 +1,8 @@
-# VUE3-TS-WEBPACK
+# VUE3-TS-TEMPLATE
 
 ## todo
 
-- [x] webpack
+- [x] webpack/vite
 - [x] vue3
 - [x] typescript
 - [x] vue-router
