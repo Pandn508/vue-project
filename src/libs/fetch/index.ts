@@ -2,22 +2,20 @@ import { message } from 'ant-design-vue';
 import axios, { AxiosInstance } from 'axios';
 import type { InternalAxiosRequestConfig, AxiosResponse } from 'axios';
 import router from '@/router';
-import pinia, { useAppStore, useMenusStore } from '@/store';
-import { CreateAxiosConfig, ResponseType, RequestConfigType } from './types';
+import { useAppStore, useMenusStore } from '@/store';
+import { CreateAxiosConfig, ResponseType, RequestConfigType, RequestBlobConfigType } from './types';
 
 export default class Request {
   private instance: AxiosInstance;
-
-  private appStore = useAppStore(pinia);
-
-  private menusStroe = useMenusStore(pinia);
 
   constructor(createConfig: CreateAxiosConfig) {
     this.instance = axios.create(createConfig);
     this.instance.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
-        const { token } = this.appStore;
+        const appStore = useAppStore();
+        const { token } = appStore;
         if (token) {
+          config.headers.token = token;
           config.headers.Authorization = token;
         }
         return config;
@@ -33,6 +31,8 @@ export default class Request {
       },
       (err: any) => {
         // 这里用来处理http常见错误，进行全局提示
+        const appStore = useAppStore();
+        const menusStroe = useMenusStore();
         let msg = '';
         switch (err.response.status) {
           case 400:
@@ -40,8 +40,8 @@ export default class Request {
             break;
           case 401:
             msg = '未授权，请重新登录(401)';
-            this.appStore.reset();
-            this.menusStroe.reset();
+            appStore.reset();
+            menusStroe.reset();
             router.replace('/login');
             break;
           case 403:
@@ -80,13 +80,25 @@ export default class Request {
     );
   }
 
-  request<D>(config: RequestConfigType): Promise<ResponseType<D>> {
+  // request<D>(config: RequestConfigType): Promise<D>;
+  // request<D>(config: RequestConfigType & { responseType: 'blob' }): Promise<D>;
+  request<D>(config: RequestBlobConfigType): Promise<D>;
+
+  request<D>(config: RequestConfigType): Promise<ResponseType<D>>;
+
+  request<D>(config: RequestConfigType | RequestBlobConfigType): Promise<ResponseType<D> | D> {
     return new Promise((resolve, reject) => {
       this.instance(config)
         .then((res) => {
+          // res 类型都为 AxiosResponse, res.data 类型可变
+          // 当返回类型为 blob 时，返回 res.data 类型为 D，反之则为 ResponseType<D>
+          if (config.responseType === 'blob') {
+            resolve(res.data);
+          }
+
           // 当返回的 body 内的 code 小于 0 时，进入错误提示
           if (res.data.code < 0 && config.showError) {
-            message.error(res.data.msg);
+            message.error(res.data.message);
             reject(res.data);
             return;
           }
@@ -106,6 +118,16 @@ export default class Request {
       params,
       url
     });
+  }
+
+  public getFile<D = any>(url: string, params?: any, config?: RequestBlobConfigType) {
+    return this.request<D>({
+      showError: true,
+      ...(config || {}),
+      method: 'GET',
+      params,
+      url
+    } as RequestBlobConfigType);
   }
 
   public put<D = any>(url: string, data?: any, config?: RequestConfigType) {
